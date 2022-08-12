@@ -31,10 +31,10 @@ public class selectionSort {
     {   int temp;
         int maxindex2;
         for (int i = 0; i < arr.length; i++) {
-          //findmax
+          //Will find the maximum number in the array
             int last =arr.length-1-i;
           maxindex2=findMax(arr,0, last);
-          //Swapping max at the right place
+          //Swapping max at the right place.
           swap(arr,last,maxindex2);
         }
 
