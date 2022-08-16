@@ -6,7 +6,7 @@ import java.util.Arrays;
 //Google
 public class cyclicSortQuestion2 {
     public static void main(String[] args) {
-        int [] arr={ 3,0,1,5,4,6,7,2,8,9};
+        int [] arr={ 3,0,1,1,2,5,4,6,7,2,9};
         CyclicSort(arr);
         System.out.println(Arrays.toString(arr));
         int i=0;
@@ -32,7 +32,7 @@ public class cyclicSortQuestion2 {
         int correct;
         while (i < arr.length) {
 
-            if (arr[i] < arr.length && arr[i] != arr[arr[i]]) {
+            if ( arr[i]!= arr[arr[i]]) {
                 swap(arr, i, arr[i]);
             } else {
 
