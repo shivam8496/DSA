@@ -1,9 +1,24 @@
 package com.Sorting;
+
+import javax.swing.*;
+import java.util.Arrays;
+
 //Google
 public class cyclicSortQuestion2 {
     public static void main(String[] args) {
-        int [] arr={ 3, 1,5};
+        int [] arr={ 3,0,1,5,4,6,7,2,8,9};
+        CyclicSort(arr);
+        System.out.println(Arrays.toString(arr));
+        int i=0;
+        while(i< arr.length)
+        {
+            if(arr[i]!=i)
+            {
+                System.out.println(i);
+            }
 
+                i++;
+        }
     }
     static void swap(int [] arr,int first ,int second)
     {int temp=arr[second];
@@ -12,30 +27,18 @@ public class cyclicSortQuestion2 {
 
 
     }
-    static void  cyclicSort(int [] arr)
-    {
-        int i=0;
+    static void CyclicSort(int[] arr) {
+        int i = 0;
         int correct;
-        while(i< arr.length)
-        {correct=arr[i]-1;
-          if(correct< arr.length && arr[i]!=arr[correct] )
-          {swap(arr,i,correct);
+        while (i < arr.length) {
 
-          }
-          else
-              i++;
+            if (arr[i] < arr.length && arr[i] != arr[arr[i]]) {
+                swap(arr, i, arr[i]);
+            } else {
 
+                i++;
+            }
         }
-    }
-    static int [] solution(int [] arr)
-    { cyclicSort(arr);
-      int i=0;
-      while (i< arr.length)
-      { if ((arr[i]-1)!=i)
-          arr.
-
-
-      }
 
     }
 }
