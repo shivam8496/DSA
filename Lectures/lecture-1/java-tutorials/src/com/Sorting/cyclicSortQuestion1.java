@@ -42,6 +42,6 @@ public class cyclicSortQuestion1 {
             else
                 i++;
         }
-        return -1;
+        return arr.length;
     }
 }
