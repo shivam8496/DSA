@@ -1,6 +1,5 @@
 package com.Sorting;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 //Google
@@ -9,15 +8,17 @@ public class cyclicSortQuestion2 {
         int [] arr={ 3,0,1,1,2,5,4,6,7,2,9};
         CyclicSort(arr);
         System.out.println(Arrays.toString(arr));
+       int [] ans={};
         int i=0;
         while(i< arr.length)
         {
             if(arr[i]!=i)
             {
-                System.out.println(i);
+                System.out.print(i+" ");
+
             }
 
-                i++;
+            i++;
         }
     }
     static void swap(int [] arr,int first ,int second)
