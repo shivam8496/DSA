@@ -1,6 +1,5 @@
 package com.Sorting;
 //Missing number
-import java.util.Arrays;
 
 //https://leetcode.com/problems/missing-number
 //Amazon
@@ -43,5 +42,10 @@ public class cyclicSortQuestion1 {
                 i++;
         }
         return arr.length;
+    }
+
+    //FindAllDuplicate
+    // https://leetcode.com/problems/find-all-duplicates-in-an-array/
+    public static class cycleSortQuestion3 {
     }
 }
