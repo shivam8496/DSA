@@ -16,5 +16,8 @@ public class BinarySearch {
         {return Search(arr,target,start,mid-1);}
         return Search(arr,target,mid+1 ,end);
 
+
     }
 }
+
+

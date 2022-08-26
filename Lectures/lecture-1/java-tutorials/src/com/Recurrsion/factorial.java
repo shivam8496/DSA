@@ -2,7 +2,7 @@ package com.Recurrsion;
 
 public class factorial {
     public static void main(String[] args) {
-        System.out.println(factorial(3));
+        System.out.println(factorial(68));
     }
     static int factorial(int n)
     {

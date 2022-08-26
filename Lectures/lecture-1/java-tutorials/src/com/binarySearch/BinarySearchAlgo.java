@@ -1,5 +1,5 @@
 package com.binarySearch;
-//Only works for sorted array(Acending OR Descending Order )
+//Only works for sorted array(Ascending OR Descending Order )
 public class BinarySearchAlgo {
     public static void main(String[] args)
     {

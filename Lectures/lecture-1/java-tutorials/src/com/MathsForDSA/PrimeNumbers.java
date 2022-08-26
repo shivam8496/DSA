@@ -2,7 +2,7 @@ package com.MathsForDSA;
 
 public class PrimeNumbers {
     public static void main(String[] args) {
-        System.out.println(isPrime(997));
+        System.out.println(isPrime(39));
     }
 
     static boolean isPrime(int n)

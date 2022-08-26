@@ -13,7 +13,7 @@ public class SeivePrime {
     static void seive(int n, boolean[] primes) {
         for (int i = 2; i * i <=n; i++) {
             if (!primes[i]) {
-                for (int j = i * 2; j <= n; j = j + i) {
+                for (int j = i * 2; j <= n; j += i) {
                     primes[j] = true;
                 }
             }
