@@ -25,4 +25,5 @@ public class reversing {
         int rem=n % 10;
         return rem * (int)(Math.pow(10,digit-1))+ PartOfAsloReversehelper(n/10,digit-1);
     }
+
 }
