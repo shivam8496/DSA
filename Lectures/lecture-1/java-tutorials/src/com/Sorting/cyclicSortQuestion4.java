@@ -6,10 +6,28 @@ import java.util.Arrays;
 // https://leetcode.com/problems/find-the-duplicate-number/
 public class cyclicSortQuestion4 {
     public static void main(String[] args) {
-        int [] arr ={0,3,4,5,1,2,6,7};
-        cyclicSort(arr);
-      System.out.println(Arrays.toString(arr));
+        int [] arr ={2,4,5,3,6,1,3};
         System.out.println(solution(arr));
+         System.out.println(Arrays.toString(arr));
+
+    }
+
+    static void cyclicSort(int [] arr )
+    {
+       int i=0;
+        int correct;
+       while(i<arr.length)
+       { correct=arr[i]-1;
+
+           if( arr[i]!=arr[correct])
+           {
+               swap(arr,i,correct);
+           }
+        else
+           i++;
+       }
+
+
     }
     static void swap(int [] arr, int start , int end)
     {
@@ -17,25 +35,11 @@ public class cyclicSortQuestion4 {
         arr[start]=arr[end];
         arr[end]=temp;
     }
-    static void cyclicSort(int [] arr )
-    {
-       int i=0;
-       while(i<arr.length)
-       { int correct=arr[i];
-           if(correct< arr.length && arr[i]!=arr[correct])
-           {
-               swap(arr,i,correct);
-           }
-
-           i++;
-       }
-
-    }
       static int solution(int [] arr)
-      {
+      {cyclicSort(arr);
           int i=0;
           while(i<arr.length)
-          {if(arr[i]!=i)
+          {if(arr[i]-1!=i)
           return arr[i];
           i++;
           }
