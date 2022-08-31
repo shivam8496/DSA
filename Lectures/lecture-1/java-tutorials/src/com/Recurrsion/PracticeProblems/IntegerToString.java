@@ -1,10 +1,6 @@
 package com.Recurrsion.PracticeProblems;
 
-import com.shivam.Array;
-
-import java.util.Arrays;
-
-public class Problem2 {
+public class IntegerToString {
     public static void main(String[] args) {
         solution(90);
 //        System.out.println(rev(1234));
