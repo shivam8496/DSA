@@ -11,10 +11,10 @@ public class Array {
             arr[i]= input.nextInt();
         }
 
-//        for(int num:arr) //Enhanced for loop for printing array
-//        {
-//            System.out.print(num+" ");
-//        }
+        for(int num:arr) //Enhanced for loop for printing array
+        {
+            System.out.print(num+" ");
+        }
 //In Another Form
         System.out.println(Arrays.toString(arr));
 
