@@ -1,6 +1,6 @@
 package com.binarySearch;
 
-import org.w3c.dom.ls.LSOutput;
+
 
 public class CeleingNumber {
     public static void main(String[] args)

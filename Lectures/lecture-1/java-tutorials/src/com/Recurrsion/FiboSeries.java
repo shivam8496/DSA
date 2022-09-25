@@ -10,6 +10,7 @@ public class FiboSeries {
     }
     static int fibo(int n)
     {
+
      if (n<2)
         {
             return n;

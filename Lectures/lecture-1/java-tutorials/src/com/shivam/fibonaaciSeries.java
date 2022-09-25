@@ -12,9 +12,7 @@ public class fibonaaciSeries {
         int temp;
         for(int i=2;i<=n;i++)
         {   temp = c ;
-
           c= c+p;
-
            p = temp ;
         }
         System.out.println("At " + n+"th Position is ==>" + c);

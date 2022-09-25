@@ -1,4 +1,4 @@
-//package com.binarySearch;
+package com.binarySearch;
 //
 //
 //import java.util.Arrays;
