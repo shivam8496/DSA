@@ -32,7 +32,7 @@ class student
         System.out.println("New object made  INT type constructor called");
     }
 
-//    SHALLOW COPY CONSTRUCTOR
+//    DEEP COPY CONSTRUCTOR
     student(student s1)
     {   //Only for arrays
         for (int i = 0; i < 3; i++) {
@@ -43,6 +43,8 @@ class student
 
       this.name=s1.name;
     }
+
+
     student()
     {
         System.out.println("New object made");
