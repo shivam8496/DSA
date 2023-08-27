@@ -1,22 +1,47 @@
 package com.recurrsionAgain;
 
+import com.shivam.Array;
+
+import java.util.ArrayList;
+
 //Amazon Interview Question
 public class DiceProblem {
     public static void main(String[] args) {
-        Combination("",4);
+        System.out.println( combinationsCount("",7,0,6));
     }
 
-    static void Combination( String u,int up)
+    static ArrayList<String> Combination(String u, int up)
+    {
+        if(up==0)
+        {   ArrayList<String> li =new ArrayList<>();
+            li.add(u);
+            return li;
+        }
+
+        ArrayList<String> ans = new ArrayList<>();
+
+        for (int i = 1;  i<= 6 && i<=up ; i++) {
+            ans.addAll(Combination(u+i,up-i));
+
+        }
+        return ans;
+    }
+
+    static int combinationsCount(String u,int up,int count,int faces)
     {
         if(up==0)
         {
             System.out.println(u);
-            return;
+            return 1;
         }
-        for (int i = 1; i<=6 && i<=up ; i++) {
-            Combination(u+i,up-i);
+        count=0;
+
+
+        for (int i = 1;  i<= faces && i<=up ; i++) {
+            count=count+combinationsCount(u+i,up-i,count++,faces);
 
         }
+        return count;
     }
 
 }
