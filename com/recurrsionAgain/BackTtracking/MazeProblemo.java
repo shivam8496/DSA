@@ -39,7 +39,26 @@ public class MazeProblemo {
      return r+c;
     }
 
-    
+
+
+    static int MazeDiagonalPath(String path,int p,int up)
+    {
+        if(p==1 && up==1)
+        {
+            System.out.println(path);
+            return 1 ;
+        }
+        int c=0;
+        int r=0;
+        if(p>1)
+        { r=MazeDiagonalPath(path+"D",p-1,up);}
+        int d=0;
+        if (p>1 && up>1)d=MazeDiagonalPath(path+"Diagonal",p-1,up-1);
+        if(up>1) {
+            c = MazeDiagonalPath(path + "R", p, up - 1);
+        }
+        return r+c+d;
+    }
 
 
 
