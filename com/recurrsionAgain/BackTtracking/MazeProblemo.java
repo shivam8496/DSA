@@ -1,5 +1,7 @@
 package com.recurrsionAgain.BackTtracking;
 
+import java.util.Arrays;
+
 public class MazeProblemo {
     public static void main(String[] args) {
       int up=3;
@@ -11,7 +13,10 @@ public class MazeProblemo {
                 {true,true,true}
         };
 
-        allPaths(0,0,maze,"");
+//        allPaths(0,0,maze,"");
+
+        int [][] pmaze=new int[maze.length][maze[0].length];
+        allPathswithMatrics(0,0,maze,"",pmaze,1);
     }
 
 
@@ -123,29 +128,30 @@ public class MazeProblemo {
         }
         if(!maze[r][c])
         {
-
             return;
         }
 
 
 
         if(r< maze.length-1)
-        {   maze[r][c]=false;  //This is where rat will enter And mark this path as visited.
+        {
             allPaths(r+1,c,maze,path+"R");
-            maze[r][c]=true;   //This is where function will be returned and this path will be adverted back to like it was in previous call
         }
         if(r>0)
-        {      maze[r][c]=false;   //This is where rat will enter And mark this path as visited.
+        {
+            maze[r][c]=false;   //This is where rat will enter And mark this path as visited.
             allPaths(r-1,c,maze,path+"U");
             maze[r][c]=true;   //This is where function will be returned and this path will be adverted back to like it was in previous call
         }
         if(c>0)
-        {      maze[r][c]=false;    //This is where rat will enter And mark this path as visited.
+        {
+            maze[r][c]=false;    //This is where rat will enter And mark this path as visited.
             allPaths(r,c-1,maze,path+"L");
             maze[r][c]=true;       //This is where function will be returned and this path will be adverted back to like it was in previous call
         }
         if(c< maze[0].length-1)
-        {   maze[r][c]=false;   //This is where rat will enter And mark this path as visited.
+        {
+            maze[r][c]=false;   //This is where rat will enter And mark this path as visited.
             allPaths(r,c+1,maze,path+"D");
             maze[r][c]=true; //This is where function will be returned and this path will be adverted back to like it was in previous call
         }
@@ -154,5 +160,54 @@ public class MazeProblemo {
 
     }
 
+    static void allPathswithMatrics(int r,int c,boolean [][] maze,String path,int [][] pmaze,int pathi)
+    {
+        if(r == maze.length-1 && c == maze[0].length-1)
+        {
+            for (int [] arr:pmaze) {
+                System.out.println(Arrays.toString(arr));
+            }
+
+            System.out.println(path);
+            System.out.println(" ");
+//            System.out.println(" ");
+            return;
+        }
+        if(!maze[r][c])
+        {
+            return;
+        }
+
+
+        maze[r][c]=false;
+        pmaze[r][c]=pathi;
+        if(r< maze.length-1)
+        {
+            allPathswithMatrics(r+1,c,maze,path+"R",pmaze,pathi+1);
+        }
+        if(r>0)
+        {
+
+            allPathswithMatrics(r-1,c,maze,path+"U",pmaze,pathi+1);
+
+        }
+        if(c>0)
+        {
+
+            allPathswithMatrics(r,c-1,maze,path+"L",pmaze,pathi+1);
+
+        }
+        if(c< maze[0].length-1)
+        {
+
+            allPathswithMatrics(r,c+1,maze,path+"D",pmaze,pathi+1);
+
+        }
+
+
+       maze[r][c]=true;
+      pmaze[r][c]=0;
+
+    }
 
 }
