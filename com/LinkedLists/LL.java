@@ -67,6 +67,24 @@ public class LL {
             size++;
 
         }
+
+        public void InsertRec(int val,int index)
+        {   Node node=head;
+            helper(val,index,node);
+            size++;
+        }
+        private Node helper(int val,int index,Node node)
+        {
+            if(index==0)
+            {
+                Node value=new Node(val);
+                value.next=node;
+                return value;
+
+            }
+            node.next=helper(val,index-1,node.next);
+            return node;
+        }
       public void display()
       {
           Node temp=head;

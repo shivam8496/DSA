@@ -11,24 +11,26 @@ public class Combination_sum {
         int target =8;
         ArrayList<Integer> ans=new ArrayList<>();
         ArrayList<ArrayList<Integer>> answer0=new ArrayList<>();
-         ArrayList<ArrayList<Integer>> answer=solution(candidates,8,0,0,ans,answer0);
+
+        ArrayList<ArrayList<Integer>> answer1=solution(candidates,8,0,0,ans,answer0);
 
 
-        for (int i = 0; i < answer.size(); i++) {
-            System.out.println(answer);
-        }
+
+            System.out.println(answer1);
+
 
     }
 
-      static ArrayList<ArrayList<Integer>> solution(int [] arr,int t,int s,int index,ArrayList<Integer> ans, ArrayList<ArrayList<Integer>> answer)
+      static ArrayList<ArrayList<Integer>> solution(int [] arr,int t,int s,int index,ArrayList<Integer> ans,ArrayList<ArrayList<Integer>> answer)
     {   if(s>t)
         {
             return answer ;
         }
         if(s==t)
-        {
-            System.out.println(ans);
-            answer.add(ans);
+        {  ArrayList<Integer> li=new ArrayList<>();
+            li.addAll(ans);
+//            System.out.println(ans);
+            answer.add(li);
             return answer;
         }
         for (int i = index; i < arr.length; i++) {
