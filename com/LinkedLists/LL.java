@@ -128,7 +128,22 @@ public class LL {
             this.next=next;
         }
 
-
+//        ListNode head=node;
+//        if(node==null)
+//        {return node;}
+//
+//        while(node.next!=null)
+//        {
+//            if(node.val==node.next.val)
+//            {
+//                node=node.next.next;
+//            }
+//            else{
+//                node=node.next;
+//            }
+//        }
+//
+//        return head;
 
     }
 }
