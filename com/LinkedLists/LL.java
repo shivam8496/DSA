@@ -1,9 +1,9 @@
 package com.LinkedLists;
 
 public class LL {
-      private Node head;
-      private Node tail;
-      private int size;
+      public Node head;
+      public Node tail;
+      public int size;
       public LL()
       {
           this.size=0;
@@ -64,6 +64,7 @@ public class LL {
             Node node= new Node(value);
             tail.next=node;
             tail=node;
+            tail.next=null;
             size++;
 
         }
@@ -106,6 +107,61 @@ public class LL {
           tail.next=null;
           return value;
       }
+
+    public boolean cycle(Node node)
+    {
+        Node fast=node;
+        Node slow=node;
+        while(fast!=null && fast.next!=null)
+        {
+             slow=slow.next;
+             fast=fast.next.next;
+            if(fast==slow)
+            {return true;}
+        }
+        return false;
+    }
+    static int size(Node head)
+    {
+        Node fast=head;
+        Node  slow=head;
+
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(fast==slow)
+            { Node temp=slow;
+                int len=0;
+                do
+                {
+                    temp=temp.next;
+                    len=len+1;
+
+                }
+                while(temp!=slow);
+                return len;
+            }
+
+
+        }
+
+        return 0;
+    }
+
+    public int cyclePos(Node node)
+    {  Node fast=node;
+        Node slow=node;
+        for (int i = 0; i <size(node) ; i++) {
+            slow=slow.next;
+        }
+        while (fast!=slow)
+        {
+            fast=fast.next;
+        }
+        return fast.value;
+    }
       public Node get(int index)
       {
           Node node=head;
@@ -114,9 +170,9 @@ public class LL {
           }
           return node;
       }
-    private class Node{
-        private int value;
-        private Node next;
+    public class Node{
+        public int value;
+        public  Node next;
 
         public Node(int value)
         {
@@ -128,22 +184,6 @@ public class LL {
             this.next=next;
         }
 
-//        ListNode head=node;
-//        if(node==null)
-//        {return node;}
-//
-//        while(node.next!=null)
-//        {
-//            if(node.val==node.next.val)
-//            {
-//                node=node.next.next;
-//            }
-//            else{
-//                node=node.next;
-//            }
-//        }
-//
-//        return head;
 
     }
 }
