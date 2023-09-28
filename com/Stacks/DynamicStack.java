@@ -8,6 +8,7 @@ public class DynamicStack extends CustomStack{
     }
 
     public DynamicStack(int value){
+
         super(value); //Will call CustomStack(int value)
     }
 

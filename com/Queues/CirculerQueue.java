@@ -11,6 +11,11 @@ public class CirculerQueue {
     public CirculerQueue(int n){
         this.data=new int[n];
     }
+
+    public CirculerQueue() {
+        this(DEFAULT_VALUE);
+    }
+
     public boolean add(int value)
     {
         if(isFull())
