@@ -108,6 +108,7 @@ public class LL {
           return value;
       }
 
+
     public boolean cycle(Node node)
     {
         Node fast=node;
@@ -170,6 +171,9 @@ public class LL {
           }
           return node;
       }
+
+
+
     public class Node{
         public int value;
         public  Node next;

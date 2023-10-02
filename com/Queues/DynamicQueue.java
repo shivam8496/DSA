@@ -36,8 +36,13 @@ public class DynamicQueue extends CirculerQueue{
         return super.add(value);
     }
 
-//    @Override
-//    public void display(){
-//
-//    }
+    @Override
+    public void display(){
+        int i=front;
+        do{
+            System.out.print(data[i++]+" -> ");
+            i=i%data.length;
+        }while(i!=end);
+        System.out.println("END");
+    }
 }
