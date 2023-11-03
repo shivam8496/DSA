@@ -69,7 +69,7 @@ public class Binarytree {
 
      public void display()
      {
-         display("",root);
+         display("\t",root);
      }
      private void display(String indent , Node node)
      {
@@ -77,10 +77,11 @@ public class Binarytree {
          {
            return;
          }
-         System.out.println(indent+node.data);
-
-         display(indent+"\t",node.left);
          display(indent+"\t",node.right);
+         System.out.println(indent+node.data);
+         display(indent+"\t",node.left);
+
+
      }
 
 
