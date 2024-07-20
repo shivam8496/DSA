@@ -4,7 +4,7 @@ package com.assignments_sem4;
 import java.util.Scanner;
 
 public class interest_calculator {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         amount(100000);
     }
     static void amount(double amount){
@@ -74,7 +74,7 @@ public class interest_calculator {
 
         }
         else {
-            System.out.println("Enter the time (in form of days ==>)");
+            System.out.println("Enter the time (in form of months ==>)");
             int days=input.nextInt();
             if(days>=7 && days<=14)
             {  amountclacmonths(amount,days,ratesS[0]);}
@@ -198,7 +198,7 @@ public class interest_calculator {
          System.out.println("Total amount after interest is ==>"+interest+amount);
     }
     static void amountclacmonths(double amount, double months, double rate) {
-        double interest=(amount*rate*(months/12));
+        double interest=(double)(amount*rate*(months*(months+1)/24)/100);
         System.out.println("Total Interest is ==>"+interest);
         System.out.println("Total amount after interest is ==>"+interest+amount);
     }
