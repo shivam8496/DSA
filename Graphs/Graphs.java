@@ -131,6 +131,29 @@ public class Graphs {
             }
         }
     }
+
+
+    public static List<List<Integer>> find_all_paths(List<Edge> [] graph,int curr,int target,List<Integer> paths,List<List<Integer>> ans , boolean [] visited)
+    {
+       if(curr==target)
+       {
+           paths.add(target);
+           ans.add(new ArrayList<>(paths));
+          return ans;
+       }
+       for(int i=0;i<graph[curr].size();i++)
+        {
+         Edge e=graph[curr].get(i);
+         visited[curr]=true;
+         paths.add(curr);
+         if(visited[e.dest]==false) find_all_paths(graph,e.dest,target,paths, ans, visited);
+         paths.remove(paths.size()-1);
+         visited[curr]=false;
+        }
+
+      return ans;
+
+    }
     public static void main(String [] args){
         int V=7;
         List<Edge> [] graph=new ArrayList[V];
@@ -139,14 +162,18 @@ public class Graphs {
 //        printAllNeighbours(graph);
 
         boolean [] visited = new boolean[graph.length];
-        for(int i=0;i<visited.length;i++)
-        {
-            if(visited[i]==false)
-            {
-                BFS(graph,visited,i);
-            }
-        }
-        DFS(graph,0,visited);
+//        for(int i=0;i<visited.length;i++)
+//        {
+//            if(visited[i]==false)
+//            {
+//                BFS(graph,visited,i);
+//            }
+//        }
+
+         List<Integer> paths=new ArrayList<>();
+         List<List<Integer>> ans=new ArrayList<>();
+        find_all_paths(graph,0,5,paths,ans,visited);
+        System.out.println(ans);
     }
 
 }
