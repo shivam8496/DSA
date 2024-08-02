@@ -20,61 +20,62 @@ public class Graphs {
             this.wt=weight;
         }
     }
-    public static void createGraph(List<Edge> [] graph)
+    public static void createGraph(List<List<Edge>> graph,int V)
     {
-        for(int i=0;i<graph.length;i++)
+        for(int i=0;i<=V;i++)
         {
-            graph[i]=new ArrayList<>();
+            graph.add(new ArrayList<>());
         }
-        graph[0].add(new Edge(0,1));
-        graph[0].add(new Edge(0,2));
+        graph.get(0).add(new Edge(0,1));
+        graph.get(0).add(new Edge(0,2));
 
-        graph[1].add(new Edge(1,0));
-        graph[1].add(new Edge(1,3));
+        graph.get(1).add(new Edge(1,0));
+        graph.get(1).add(new Edge(1,3));
 
-        graph[2].add(new Edge(2,0));
-        graph[2].add(new Edge(2,4));
+        graph.get(2).add(new Edge(2,0));
+        graph.get(2).add(new Edge(2,4));
 
-        graph[3].add(new Edge(3,1));
-        graph[3].add(new Edge(3,4));
-        graph[3].add(new Edge(3,5));
+        graph.get(3).add(new Edge(3,1));
+        graph.get(3).add(new Edge(3,4));
+        graph.get(3).add(new Edge(3,5));
 
-        graph[4].add(new Edge(4,2));
-        graph[4].add(new Edge(4,3));
-        graph[4].add(new Edge(4,5));
+        graph.get(4).add(new Edge(4,2));
+        graph.get(4).add(new Edge(4,3));
+        graph.get(4).add(new Edge(4,5));
 
-        graph[5].add(new Edge(5,3));
-        graph[5].add(new Edge(5,4));
-        graph[5].add(new Edge(5,6));
+        graph.get(5).add(new Edge(5,3));
+        graph.get(5).add(new Edge(5,4));
+        graph.get(5).add(new Edge(5,6));
     }
-    public static void createWeightedGraph(List<Edge> [] graph)
+//    public static void createWeightedGraph(List<List<Edge>> graph)
+//    {
+//        for(int i=0;i<graph.length;i++)
+//        {
+//            graph[i]=new ArrayList<>();
+//        }
+//        graph[0].add(new Edge(0,2,2));
+//
+//        graph[1].add(new Edge(1,2,10));
+//        graph[1].add(new Edge(1,3,0));
+//
+//        graph[2].add(new Edge(2,0,2));
+//        graph[2].add(new Edge(2,3,-1));
+//        graph[2].add(new Edge(2,1,10));
+//
+//        graph[3].add(new Edge(3,1,0));
+//        graph[3].add(new Edge(3,2,-1));
+//    }
+
+    public static void printAllNeighbours(List<List<Edge>> graph)
     {
-        for(int i=0;i<graph.length;i++)
+        for(int i=0;i<graph.size();i++)
         {
-            graph[i]=new ArrayList<>();
-        }
-        graph[0].add(new Edge(0,2,2));
-
-        graph[1].add(new Edge(1,2,10));
-        graph[1].add(new Edge(1,3,0));
-
-        graph[2].add(new Edge(2,0,2));
-        graph[2].add(new Edge(2,3,-1));
-        graph[2].add(new Edge(2,1,10));
-
-        graph[3].add(new Edge(3,1,0));
-        graph[3].add(new Edge(3,2,-1));
-    }
-    public static void printAllNeighbours(List<Edge> [] graph)
-    {
-        for(int i=0;i<graph.length;i++)
-        {
-            for(int j=0;j<graph[i].size();j++)
+            for(int j=0;j<graph.get(i).size();j++)
             {
-                Edge e=graph[i].get(j);
+                Edge e=graph.get(i).get(j);
                 if(e.wt==-10)
                 {
-                    if(j==graph[i].size()-1)
+                    if(j==graph.get(i).size()-1)
                     {
                         System.out.print(e.src+" Neighbour ==>"+e.dest+" ");
                     }
@@ -85,7 +86,7 @@ public class Graphs {
 
                 else
                 {
-                    if(j==graph[i].size()-1)
+                    if(j==graph.get(i).size()-1)
                     {
                         System.out.print(e.src+" Neighbour ==>"+e.dest+" Weight==> "+e.wt+" ");
                     }
@@ -99,7 +100,7 @@ public class Graphs {
     }
 
 
-    public static  void BFS(List<Edge> [] graph,boolean [] visited , int start)
+    public static  void BFS(List<List<Edge>>  graph,boolean [] visited , int start)
     {
      Queue<Integer> q=new LinkedList<>();
 
@@ -110,22 +111,22 @@ public class Graphs {
             {
                 System.out.print(curr);
                 visited[curr]=true;
-                for(int i=0;i<graph[curr].size();i++)
+                for(int i=0;i<graph.get(curr).size();i++)
                 {
-                    Edge e=graph[curr].get(i);
+                    Edge e=graph.get(curr).get(i);
                     q.add(e.dest);
                 }
             }
         }
     }
 
-    public static void DFS(List<Edge> [] graph,int curr, boolean [] visited)
+    public static void DFS(List<List<Edge>> graph,int curr, boolean [] visited)
     {
         System.out.print(curr+" ");
         visited[curr]=true;
-        for(int i=0;i<graph[curr].size();i++)
+        for(int i=0;i<graph.get(curr).size();i++)
         {
-            Edge e=graph[curr].get(i);
+            Edge e=graph.get(curr).get(i);
             if(visited[e.dest]==false){
                 DFS(graph,e.dest,visited);
             }
@@ -133,7 +134,7 @@ public class Graphs {
     }
 
 
-    public static List<List<Integer>> find_all_paths(List<Edge> [] graph,int curr,int target,List<Integer> paths,List<List<Integer>> ans , boolean [] visited)
+    public static List<List<Integer>> find_all_paths(List<List<Edge>> graph,int curr,int target,List<Integer> paths,List<List<Integer>> ans , boolean [] visited)
     {
        if(curr==target)
        {
@@ -141,9 +142,9 @@ public class Graphs {
            ans.add(new ArrayList<>(paths));
           return ans;
        }
-       for(int i=0;i<graph[curr].size();i++)
+       for(int i=0;i<graph.get(curr).size();i++)
         {
-         Edge e=graph[curr].get(i);
+         Edge e=graph.get(curr).get(i);
          visited[curr]=true;
          paths.add(curr);
          if(visited[e.dest]==false) find_all_paths(graph,e.dest,target,paths, ans, visited);
@@ -156,12 +157,12 @@ public class Graphs {
     }
     public static void main(String [] args){
         int V=7;
-        List<Edge> [] graph=new ArrayList[V];
-        createGraph(graph);
+        List<List<Edge>> graph=new ArrayList<>();
+        createGraph(graph,V);
 //        createWeightedGraph(graph);
 //        printAllNeighbours(graph);
 
-        boolean [] visited = new boolean[graph.length];
+        boolean [] visited = new boolean[graph.size()];
 //        for(int i=0;i<visited.length;i++)
 //        {
 //            if(visited[i]==false)
