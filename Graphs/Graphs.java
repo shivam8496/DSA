@@ -163,13 +163,13 @@ public class Graphs {
 //        printAllNeighbours(graph);
 
         boolean [] visited = new boolean[graph.size()];
-//        for(int i=0;i<visited.length;i++)
-//        {
-//            if(visited[i]==false)
-//            {
-//                BFS(graph,visited,i);
-//            }
-//        }
+        for(int i=0;i<visited.length;i++)
+        {
+            if(visited[i]==false)
+            {
+                BFS(graph,visited,i);
+            }
+        }
 
          List<Integer> paths=new ArrayList<>();
          List<List<Integer>> ans=new ArrayList<>();

@@ -50,7 +50,7 @@ public class directedGraph {
         graph.get(0).add(new Edge(0,4));
 
         graph.get(1).add(new Edge(1,0));
-//        graph.get(1).add(new Edge(1,4));
+
         graph.get(1).add(new Edge(1,2));
 
         graph.get(2).add(new Edge(2,1));
@@ -59,7 +59,7 @@ public class directedGraph {
         graph.get(3).add(new Edge(3,2));
 
         graph.get(4).add(new Edge(4,0));
-//        graph.get(4).add(new Edge(4,1));
+
         graph.get(4).add(new Edge(4,5));
 
         graph.get(4).add(new Edge(4,5));
