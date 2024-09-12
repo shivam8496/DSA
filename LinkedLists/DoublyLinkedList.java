@@ -44,6 +44,10 @@ public class DoublyLinkedList {
         return head;
     }
     public static void print(ListNode head){
+        if(head==null) {
+            System.out.println("NULL");
+            return;
+        }
         while(head.next!=null){
             System.out.print(head.value+"->");
             head=head.next;
@@ -56,30 +60,71 @@ public class DoublyLinkedList {
     }
 
     public static ListNode deleteNode(ListNode head,int index){
-     if(head==null) return null;
-     if(head.next==null && head.prev==null) return null;
-     int size=calculateSize( head);
+       if(head==null) return null;
+        int count=0;
 
-     if(index<0 || index>=size) return head;
+        ListNode curr=head;
 
-     ListNode curr=head;
-
-     ListNode back=head;
-     for(int i=0;i<index;i++){
-         back=head;
-         head=head.next;
-     }
-
-     back.next=back.next.next;
-     head.prev=head.prev.prev;
-
-     return curr.next;
+        while(head!=null){
+            count++;
+            if(count==index) break;
+            curr=curr.next;
+        }
+        if(curr.prev==null) {
+            head=deleteHead(head);
+            return head;
+        }
+        if(curr.next==null){
+            head=deleteTail(head);
+            return head;
+        }
+        ListNode back=curr.prev;
+        ListNode front=curr.next;
+        back.next=front;
+        front.prev=back;
+        curr.prev=null;
+        curr.next=null;
+        return head;
     }
 
+    public static ListNode deleteHead(ListNode head){
+        if(head==null ||  head.next==null) {
+            return null;
+        }
+
+        ListNode curr=head;
+        head=head.next;
+        curr.next=null;
+        head.prev=null;
+
+        return head;
+
+
+
+    }
+    public static ListNode deleteTail(ListNode head){
+        if(head==null || head.next==null) return null;
+
+        ListNode curr = head;
+
+        while(curr.next!=null){
+           curr=curr.next;
+        }
+        ListNode temp=curr.prev;
+        curr.prev=null;
+        temp.next=null;
+
+
+
+        return head;
+    }
     public static void main(String[] args) {
-        int[] arr = {1, 2};
+        int[] arr = {1,2,3,4,5,6};
        ListNode li=createList(arr);
-       deleteNode(li,0);
+//       deleteNode(li,0);
+//        li=deleteHead(li);
+//        li=deleteTail(li);
+        li=deleteNode(li,3);
        print(li);
     }
 }
