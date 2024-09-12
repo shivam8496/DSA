@@ -118,13 +118,49 @@ public class DoublyLinkedList {
 
         return head;
     }
+
+    public static ListNode insertAtHead(ListNode head,int value){
+        if(head==null){
+            return new ListNode(value);
+        }
+
+        ListNode node = new ListNode(value);
+        node.next=head;
+        head.prev=node;
+        head=head.prev;
+
+        return head;
+    }
+
+    public static ListNode insertAtTail(ListNode head,int value){
+        if(head==null)return new ListNode(value);
+
+        ListNode curr=head;
+
+        while(curr.next!=null){
+            curr=curr.next;
+        }
+
+        curr.next=new ListNode(value);
+
+        curr.next.prev=curr;
+
+        return head;
+    }
+
+    public static ListNode insertAtIndex(ListNode head,int index,int value){
+
+    }
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6};
        ListNode li=createList(arr);
 //       deleteNode(li,0);
 //        li=deleteHead(li);
 //        li=deleteTail(li);
-        li=deleteNode(li,3);
+//        li=deleteNode(li,3);
+//        li=insertAtHead(li,0);
+        
        print(li);
     }
+
 }
